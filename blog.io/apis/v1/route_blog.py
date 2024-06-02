@@ -35,7 +35,7 @@ def get_all_blogs(db: Session = Depends(get_db)):
 def update_a_blog(id:int, blog: UpdateBlog, db:Session = Depends(get_db)):
     blog = update_blog(id=id, blog=blog, author_id=1, db=db)
     if not blog:
-        raise HTTPException(detail=f"Blog with id {id} does not exist")
+        raise HTTPException(detail=f"Blog with id {id} does not exist", status_code=status.HTTP_404_NOT_FOUND)
     return blog
 
 

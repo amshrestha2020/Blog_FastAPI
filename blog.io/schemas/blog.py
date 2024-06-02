@@ -9,7 +9,7 @@ class CreateBlog(BaseModel):
     slug: str 
     content: Optional[str] = None 
     
-    @validator('slug', pre=True)
+    @validator('slug')
     def generate_slug(cls, slug, values):
         title = values.get('title')
         slug = None
