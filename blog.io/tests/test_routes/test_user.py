@@ -1,6 +1,6 @@
 def test_create_user(client):
-    data = {"email":"testuser@nofoobar.com","password":"testing"}
+    data = {"email":"admin@yopmail.com","password":"admin"}
     response = client.post("/users",json=data)
     assert response.status_code == 201
-    assert response.json()["email"] == "testuser@nofoobar.com"
+    assert response.json()["email"] == "admin@yopmail.com"
     assert response.json()["is_active"] == True
